@@ -3,6 +3,7 @@ package id.fatimazza.composeapp
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -25,8 +26,10 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Greeting() {
-    Text(text = "Hello Android!")
-    Text(text = "Fatima!")
+    Row {
+        Text(text = "Hello Android!")
+        Text(text = "Fatima!")
+    }
 }
 
 @Preview(showBackground = true)
