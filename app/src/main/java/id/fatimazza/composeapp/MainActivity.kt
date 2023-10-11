@@ -17,19 +17,33 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import id.fatimazza.composeapp.ui.theme.ComposeAppTheme
 
+private val names = listOf(
+    "Tingky",
+    "Wingky",
+    "Dipsy",
+    "Lala",
+    "Pooh",
+    "Sepooh",
+    "Tiger",
+    "Piglet",
+    "Rabbit"
+)
+
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             ComposeAppTheme {
-                MyList()
+                MyList(names)
             }
         }
     }
 }
 
 @Composable
-fun MyList() {
+fun MyList(
+    names: List<String>
+) {
     Surface(
         color = MaterialTheme.colorScheme.background,
         modifier = Modifier.fillMaxSize()
@@ -68,6 +82,6 @@ fun Greeting(name: String) {
 @Composable
 fun GreetingPreview() {
     ComposeAppTheme {
-        MyList()
+        MyList(names)
     }
 }
