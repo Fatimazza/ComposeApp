@@ -23,8 +23,8 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun Greeting(name: String) {
     Column {
-        Text(text = "Hello $name")
-        Text(text = "Hello $name")
+        Text(text = "Hello, ")
+        Text(text = name)
     }
 }
 
