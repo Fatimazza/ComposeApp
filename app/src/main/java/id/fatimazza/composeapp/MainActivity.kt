@@ -14,17 +14,17 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             ComposeAppTheme {
-                Greeting()
+                Greeting("Fatima")
             }
         }
     }
 }
 
 @Composable
-fun Greeting() {
+fun Greeting(name: String) {
     Column {
-        Text(text = "Hello Android!")
-        Text(text = "Fatima!")
+        Text(text = "Hello $name")
+        Text(text = "Hello $name")
     }
 }
 
@@ -32,6 +32,6 @@ fun Greeting() {
 @Composable
 fun GreetingPreview() {
     ComposeAppTheme {
-        Greeting()
+        Greeting("Fatima")
     }
 }
