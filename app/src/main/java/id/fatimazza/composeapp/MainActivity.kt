@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.MaterialTheme
@@ -29,10 +30,15 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun MyList() {
-    Column {
-        Greeting(name = "Fatima")
-        Greeting(name = "Fatima")
-        Greeting(name = "Fatima")
+    Surface(
+        color = MaterialTheme.colorScheme.background,
+        modifier = Modifier.fillMaxSize()
+    ) {
+        Column {
+            Greeting(name = "Fatima")
+            Greeting(name = "Fatima")
+            Greeting(name = "Fatima")
+        }
     }
 }
 
