@@ -26,6 +26,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun Greeting() {
     Text(text = "Hello Android!")
+    Text(text = "Fatima!")
 }
 
 @Preview(showBackground = true)
