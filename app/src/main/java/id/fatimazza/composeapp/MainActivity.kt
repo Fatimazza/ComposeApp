@@ -17,6 +17,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -74,7 +75,7 @@ fun MyList(
 @SuppressLint("UnrememberedMutableState")
 @Composable
 fun Greeting(name: String) {
-    var expanded = mutableStateOf(false)
+    var expanded = remember { mutableStateOf(false) }
     val extraPadding = if (expanded.value) 48.dp else 8.dp
 
     Surface(
