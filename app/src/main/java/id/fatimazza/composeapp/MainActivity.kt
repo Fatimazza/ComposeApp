@@ -4,6 +4,9 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.animateDpAsState
+import androidx.compose.animation.core.spring
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -78,7 +81,14 @@ fun MyList(
 @Composable
 fun Greeting(name: String) {
     var expanded by remember { mutableStateOf(false) }
-    val extraPadding = if (expanded) 48.dp else 8.dp
+
+    val extraPadding by animateDpAsState(
+        if (expanded) 48.dp else 8.dp,
+        animationSpec = spring(
+            dampingRatio = Spring.DampingRatioMediumBouncy,
+            stiffness = Spring.StiffnessLow
+        ), label = ""
+    )
 
     Surface(
         color = MaterialTheme.colorScheme.primary,
