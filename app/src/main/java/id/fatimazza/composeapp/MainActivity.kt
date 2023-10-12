@@ -31,42 +31,31 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import id.fatimazza.composeapp.data.Dog
+import id.fatimazza.composeapp.data.dogs
 import id.fatimazza.composeapp.ui.theme.ComposeAppTheme
-
-private val names = listOf(
-    "Tingky",
-    "Wingky",
-    "Dipsy",
-    "Lala",
-    "Pooh",
-    "Sepooh",
-    "Tiger",
-    "Piglet",
-    "Rabbit"
-)
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             ComposeAppTheme {
-                MyList(names)
+                MyList()
             }
         }
     }
 }
 
 @Composable
-fun MyList(
-    names: List<String>
-) {
+fun MyList() {
     Surface(
         color = MaterialTheme.colorScheme.background,
         modifier = Modifier.fillMaxSize()
     ) {
-        if (names.isEmpty()) {
+        if (dogs.isEmpty()) {
             Box(
                 modifier = Modifier.fillMaxSize(),
                 contentAlignment = Alignment.Center
@@ -75,8 +64,8 @@ fun MyList(
             }
         } else {
             LazyColumn {
-                items(items = names) {
-                        name -> Greeting(name = name)
+                items(items = dogs) {
+                        dog -> Greeting(dog = dog)
                 }
             }
         }
@@ -85,7 +74,7 @@ fun MyList(
 
 @SuppressLint("UnrememberedMutableState")
 @Composable
-fun Greeting(name: String) {
+fun Greeting(dog: Dog) {
     var expanded by remember { mutableStateOf(false) }
 
     val extraPadding by animateDpAsState(
@@ -110,7 +99,7 @@ fun Greeting(name: String) {
                     .padding(8.dp)
                     .clip(MaterialTheme.shapes.large),
                 contentScale = ContentScale.Crop,
-                painter = painterResource(R.drawable.dog_dipsy),
+                painter = painterResource(dog.imageResourceId),
                 contentDescription = null
             )
             Column(
@@ -120,7 +109,7 @@ fun Greeting(name: String) {
             ) {
                 Text(text = "Hello, ")
                 Text(
-                    text = name,
+                    text = stringResource(dog.name),
                     style = MaterialTheme.typography.titleLarge)
             }
             ElevatedButton(
@@ -141,6 +130,6 @@ fun Greeting(name: String) {
 @Composable
 fun GreetingPreview() {
     ComposeAppTheme {
-        MyList(names)
+        MyList()
     }
 }
