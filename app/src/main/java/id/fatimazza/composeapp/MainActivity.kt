@@ -92,6 +92,7 @@ fun Greeting(name: String) {
 
     Surface(
         color = MaterialTheme.colorScheme.primary,
+        shape = MaterialTheme.shapes.small,
         modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp)
     ) {
         Row(
