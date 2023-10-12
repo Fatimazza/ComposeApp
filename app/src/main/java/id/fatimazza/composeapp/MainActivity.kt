@@ -90,9 +90,9 @@ fun Greeting(name: String) {
         ), label = ""
     )
 
-    Surface(
+    Surface (
         color = MaterialTheme.colorScheme.primary,
-        shape = MaterialTheme.shapes.small,
+        shape = MaterialTheme.shapes.medium,
         modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp)
     ) {
         Row(
