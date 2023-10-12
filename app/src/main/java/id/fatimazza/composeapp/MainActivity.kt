@@ -1,5 +1,6 @@
 package id.fatimazza.composeapp
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -15,6 +16,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -69,10 +71,11 @@ fun MyList(
     }
 }
 
+@SuppressLint("UnrememberedMutableState")
 @Composable
 fun Greeting(name: String) {
-    var expanded = false
-    val extraPadding = if (expanded) 48.dp else 8.dp
+    var expanded = mutableStateOf(false)
+    val extraPadding = if (expanded.value) 48.dp else 8.dp
 
     Surface(
         color = MaterialTheme.colorScheme.primary,
@@ -90,9 +93,9 @@ fun Greeting(name: String) {
                 Text(text = name)
             }
             ElevatedButton(
-                onClick = { expanded = !expanded }
+                onClick = { expanded.value = !expanded.value }
             ) {
-                Text(text = if (expanded) "Show Less" else "Show More")
+                Text(text = if (expanded.value) "Show Less" else "Show More")
             }
         }
     }
