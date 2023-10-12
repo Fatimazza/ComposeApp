@@ -50,9 +50,13 @@ fun MyList(
         color = MaterialTheme.colorScheme.background,
         modifier = Modifier.fillMaxSize()
     ) {
-        LazyColumn {
-            items(items = names) {
-                name -> Greeting(name = name)
+        if(names.isEmpty()) {
+
+        } else {
+            LazyColumn {
+                items(items = names) {
+                        name -> Greeting(name = name)
+                }
             }
         }
     }
