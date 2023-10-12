@@ -36,7 +36,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             ComposeAppTheme {
-                MyList(names)
+                MyList(listOf())
             }
         }
     }
@@ -51,7 +51,7 @@ fun MyList(
         modifier = Modifier.fillMaxSize()
     ) {
         if(names.isEmpty()) {
-
+            Text(text = "No one here :(")
         } else {
             LazyColumn {
                 items(items = names) {
@@ -88,6 +88,6 @@ fun Greeting(name: String) {
 @Composable
 fun GreetingPreview() {
     ComposeAppTheme {
-        MyList(names)
+        MyList(listOf())
     }
 }
