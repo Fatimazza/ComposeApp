@@ -71,6 +71,9 @@ fun MyList(
 
 @Composable
 fun Greeting(name: String) {
+    var expanded = false
+    val extraPadding = if (expanded) 48.dp else 8.dp
+
     Surface(
         color = MaterialTheme.colorScheme.primary,
         modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp)
@@ -79,13 +82,17 @@ fun Greeting(name: String) {
             modifier = Modifier.padding(24.dp)
         ) {
             Column(
-                modifier = Modifier.weight(1f)
+                modifier = Modifier
+                    .weight(1f)
+                    .padding(bottom = extraPadding)
             ) {
                 Text(text = "Hello, ")
                 Text(text = name)
             }
-            ElevatedButton(onClick = { }) {
-                Text(text = "Show More")
+            ElevatedButton(
+                onClick = { expanded = !expanded }
+            ) {
+                Text(text = if (expanded) "Show Less" else "Show More")
             }
         }
     }
