@@ -72,7 +72,6 @@ fun MyList() {
     }
 }
 
-@SuppressLint("UnrememberedMutableState")
 @Composable
 fun Greeting(dog: Dog) {
     var expanded by remember { mutableStateOf(false) }
